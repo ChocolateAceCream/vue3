@@ -1,9 +1,77 @@
 import vue from '@vitejs/plugin-vue'
+import path from 'path'
+
+const fs = require("fs")
+
+// Dotenv 是一个零依赖的模块，它能将环境变量中的变量从 .env 文件加载到 process.env 中
+const dotenv = require("dotenv")
+
+const envFiles = [
+  /** default file */ `.env`,
+  /** mode file */ `.env.${process.env.NODE_ENV}`
+]
+
+for (const file of envFiles) {
+  const envConfig = dotenv.parse(fs.readFileSync(file))
+  for (const k in envConfig) {
+    process.env[k] = envConfig[k]
+  }
+}
+
+export default {
+  plugins: [vue()],
+  alias: {
+    '/@/': path.resolve(__dirname, './src')
+  },
+  // optimizeDeps: {
+  //   include: ['echarts']
+  // },
+  server: {
+    hostname: process.env.VITE_HOST,
+    port: process.env.VITE_PORT,
+
+    // 反向代理
+    proxy: {
+      '/api': {
+        target: "http://localhost:8080",
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, "")
+      }
+    }
+  },
+  // 引用全局 scss
+  cssPreprocessOptions: {
+    scss: {
+      additionalData: '@import "./src/assets/style/index.scss";'
+    }
+  },
+  // 压缩
+  minify: 'esbuild',
+  // 是否自动在浏览器打开
+  open: false,
+  // 是否开启 https
+  https: false,
+  // 服务端渲染
+  ssr: false,
+  /**
+   * Base public path when served in production.
+   * @default '/'
+   */
+  base: process.env.VITE_BASE_URL,
+  /**
+   * Directory relative from `root` where build output will be placed. If the
+   * directory exists, it will be removed before the build.
+   * @default 'dist'
+   */
+  outDir: process.env.VITE_OUTPUT_DIR,
+  
+}
 
 /**
  * https://vitejs.dev/config/
  * @type {import('vite').UserConfig}
  */
-export default {
-  plugins: [vue()]
-}
+// export default {
+//   plugins: [vue()],
+//   port: process.env.VITE_PORT
+// }

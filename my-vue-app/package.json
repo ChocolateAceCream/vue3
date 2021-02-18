@@ -2,11 +2,14 @@
   "name": "my-vue-app",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "NODE_ENV=development vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "build-dev": "NODE_ENV=development vite build",
+    "build-prd": "NODE_ENV=production vite build"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "vue": "^3.0.5"
   },
   "devDependencies": {
