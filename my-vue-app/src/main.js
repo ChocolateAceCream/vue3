@@ -47,6 +47,8 @@ app2.mixin({
   created() {
     console.log(this.$options.custom) // => "hello!"
     console.log('process', this.process)
+    console.log('VITE_APP_CONTEXT',import.meta.env.VITE_APP_CONTEXT)
+    console.log('env var VITE_PORT', import.meta.env.VITE_PORT) //example usage of ENVIRONMENT VARIABLES
 }
 })
 

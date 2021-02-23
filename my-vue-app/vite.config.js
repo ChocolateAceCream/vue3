@@ -1,10 +1,10 @@
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
-
-const fs = require("fs")
-
+import fs from 'fs'
 // Dotenv 是一个零依赖的模块，它能将环境变量中的变量从 .env 文件加载到 process.env 中
-const dotenv = require("dotenv")
+import dotenv from 'dotenv'
+
+console.log(process.env.NODE_ENV)
 
 const envFiles = [
   /** default file */ `.env`,
@@ -18,6 +18,34 @@ for (const file of envFiles) {
   }
 }
 
+console.log('process.env.VITE_HOST',process.env.VITE_HOST)
+console.log('process.env.VITE_PORT',process.env.VITE_PORT)
+
+const serverOption = {
+  hostname: process.env.VITE_HOST,
+  port: process.env.VITE_PORT,
+
+  // 反向代理
+  proxy: {
+    // string shorthand
+    '/foo': 'http://localhost:3000',
+    // with options
+    '/api': {
+      target: 'http://www.qiutianaimeili.com/html/',
+      changeOrigin: true,
+      rewrite: (path) => {
+        let t = path.replace(/^\/api/, 'page/2019/05/ly9elo7w9bn.html')
+        return t
+      }
+    },
+    // with RegEx
+    '^/fallback/.*': {
+      target: 'http://jsonplaceholder.typicode.com',
+      changeOrigin: true,
+      rewrite: (path) => path.replace(/^\/fallback/, '')
+    }
+  }
+}
 export default {
   plugins: [vue()],
   alias: {
@@ -26,19 +54,7 @@ export default {
   // optimizeDeps: {
   //   include: ['echarts']
   // },
-  server: {
-    hostname: process.env.VITE_HOST,
-    port: process.env.VITE_PORT,
-
-    // 反向代理
-    proxy: {
-      '/api': {
-        target: "http://localhost:8080",
-        changeOrigin: true,
-        rewrite: path => path.replace(/^\/api/, "")
-      }
-    }
-  },
+  server: serverOption,
   // 引用全局 scss
   cssPreprocessOptions: {
     scss: {
