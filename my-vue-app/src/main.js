@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 
 import App from './App.vue'
 import App2 from './App2.vue'
+import App3 from './App3.vue'
 
 import i18nPlugin  from './plugins/i18n'
 createApp(App).mount('#app')
@@ -61,4 +62,10 @@ const i18nStrings = {
 
 app2.use(i18nPlugin ,i18nStrings)
 app2.mount('#app2')
+
+
+const app3 = createApp(App3)
+
+app3.mount('#app3')
+
 

@@ -12,6 +12,15 @@ export default {
     translate() {
       return this.$translate
     }
+  },
+  mounted() {
+    const params = new URLSearchParams(window.location.search)
+
+    params.set('id2','kkk')
+    console.log('window.location',window.location)
+    console.log('URLSearchParams get', params.get('id'))
+    console.log('URLSearchParams getAll', params.getAll('id'))
+    console.log('all keys',[...params.entries()])
   }
 }
 </script>
