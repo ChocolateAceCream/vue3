@@ -4,6 +4,7 @@
     <button id="add" @click="add">add</button>
     <p>{{number}}</p>
     <Reactive :msg="number"></Reactive>
+    <CurrentInstance />
   </div>
 </template>
 
@@ -11,10 +12,12 @@
 <script>
 import { onMounted, onUpdated, onUnmounted, ref, onBeforeMount } from 'vue'
 import Reactive from './components/Reactive.vue'
+import CurrentInstance from './components/CurrentInstance.vue'
 export default {
   name: 'App2',
   components: {
     Reactive,
+    CurrentInstance
   },
 
   data() {

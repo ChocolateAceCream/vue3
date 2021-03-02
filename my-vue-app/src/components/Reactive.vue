@@ -1,20 +1,28 @@
 <template>
   <div>
     <h1>child component example</h1>
-    <h1>{{ state.count }}</h1>
+    <h1 @click="state.count++">{{ state.count }}</h1>
     <h1>{{ msg }}</h1>
   </div>
 </template>
 
 <script setup>
-import { defineProps, reactive, ref } from 'vue'
+import { defineProps, reactive, ref, useContext } from 'vue'
 
-defineProps({
+const props = defineProps({
   msg: Number
 })
 
+console.log('useContext', useContext)
+console.log('useContext', useContext.attrs)
+
 const state = reactive({ count: 0 })
+const init = async() => {
+  console.log('-----props.msg--------', props.msg)
+}
 // const state2 = ref({ count: 0 })
+
+init()
 </script>
 
 <style scoped>
