@@ -69,3 +69,13 @@ const app3 = createApp(App3)
 app3.mount('#app3')
 
 
+const req = require.context('./mapJson', false, /\.json$/)
+const requireAll = (requireContext) => {
+  requireContext.keys().map(requireContext)
+  console.log(requireContext)
+}
+requireAll(req)
+console.log('----a----------')
+
+
+

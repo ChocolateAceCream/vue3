@@ -80,6 +80,11 @@ export default {
    * @default 'dist'
    */
   outDir: process.env.VITE_OUTPUT_DIR,
+
+  // vscode chrome debugger
+  configureWebpack: {
+    devtool: 'source-map'
+  }
   
 }
 

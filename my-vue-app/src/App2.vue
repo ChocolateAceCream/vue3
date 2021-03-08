@@ -21,6 +21,8 @@ export default {
     console.log('URLSearchParams get', params.get('id'))
     console.log('URLSearchParams getAll', params.getAll('id'))
     console.log('all keys',[...params.entries()])
+
+
   }
 }
 </script>
