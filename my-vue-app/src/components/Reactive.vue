@@ -16,7 +16,7 @@ const props = defineProps({
 console.log('useContext', useContext)
 console.log('useContext', useContext.attrs)
 
-const state = reactive({ count: 0 })
+const state = reactive
 const init = async() => {
   console.log('-----props.msg--------', props.msg)
 }

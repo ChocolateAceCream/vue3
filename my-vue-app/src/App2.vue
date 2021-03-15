@@ -14,8 +14,14 @@ export default {
     }
   },
   mounted() {
+    let a = {a:1, b:2, c:3}
+    let b = {...a, b:23}
+    console.log('destrucor-----------------------',Object.entries({a: 1, b: 2, c: 3}))
+    let add=(x,y)=>x+y;
+    const n1=100,n2=200;
+    var result=add(n1,n2);
+    console.log(result);
     const params = new URLSearchParams(window.location.search)
-
     params.set('id2','kkk')
     console.log('window.location',window.location)
     console.log('URLSearchParams get', params.get('id'))
