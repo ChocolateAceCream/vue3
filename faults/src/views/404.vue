@@ -7,6 +7,7 @@
         <img class="pic-404__child mid" src="@/assets/images/404_cloud.png" alt="404">
         <img class="pic-404__child right" src="@/assets/images/404_cloud.png" alt="404">
       </div>
+      <p>asfasfa</p>
       <div class="bullshit">{{ message }}
       </div>
     </div>
@@ -149,6 +150,12 @@ export default {
     }
   }
   .bullshit {
+    @include mobile-device {
+      font-size: 10px;
+    }
+    @include desktop-device {
+      font-size: 20px;
+    }
     position: relative;
     float: left;
     width: 300px;

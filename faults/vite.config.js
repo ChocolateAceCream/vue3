@@ -41,4 +41,12 @@ export default defineConfig({
   server: serverOption,
   optimizeDeps: depOptimizationOption,
   build: buildOption,
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // additionalData: `$injectedColor: orange;`
+        additionalData: '@import "@/assets/styles/globalInjectedData.scss";'
+      }
+    }
+  },
 })
