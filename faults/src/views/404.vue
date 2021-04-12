@@ -8,6 +8,8 @@
         <img class="pic-404__child right" src="@/assets/images/404_cloud.png" alt="404">
       </div>
       <p>asfasfa</p>
+      <el-button type="primary">el-button</el-button>
+      <el-button type="primary">el-button</el-button>
       <div class="bullshit">{{ message }}
       </div>
     </div>

@@ -1,0 +1,18 @@
+.el-tabs {
+	.el-tabs__header {
+		background: #333;
+	}
+	.el-tabs__active-bar {
+		background: #b5b5b5;
+	}
+	.el-tabs__item {
+		color: #b5b5b5;
+		&.is-active {
+			//color: #409EFF;
+			color: #ddd;
+		}
+	}
+	.el-tabs__nav-wrap::after {
+		background-color: #333;
+	}
+}

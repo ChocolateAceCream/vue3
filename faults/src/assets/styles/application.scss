@@ -1,1 +1,15 @@
 @import "application/base";
+
+// override
+@import "application/element-plus/el-input";
+@import "application/element-plus/el-autocomplete";
+@import "application/element-plus/el-dropdown";
+@import "application/element-plus/el-select";
+@import "application/element-plus/el-dialog";
+@import "application/element-plus/el-tabs";
+@import "application/element-plus/el-collapse";
+@import "application/element-plus/el-tag";
+@import "application/element-plus/el-input-number";
+@import "application/element-plus/el-color-picker";
+@import "application/element-plus/el-switch";
+@import "application/element-plus/el-slider";

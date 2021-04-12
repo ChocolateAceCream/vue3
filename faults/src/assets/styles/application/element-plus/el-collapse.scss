@@ -1,0 +1,28 @@
+.el-collapse {
+	border-top: none;
+	border-bottom: none;
+
+	.el-collapse-item__header {
+		background: #3c3c3c;
+		border-bottom: 1px solid #2c2c2c;
+		height: 27px;
+		line-height: 27px;
+		color: #b5b5b5;
+		padding-left: 5px;
+
+		&.focusing {
+			.title, .el-collapse-item__arrow {
+				color: #b5b5b5;
+			}
+		}
+	}
+	.el-collapse-item__wrap {
+		background: #2c2c2c;
+		border-bottom: none;
+		//padding: 5px 0;
+		.el-collapse-item__content {
+			color: inherit;
+			padding-bottom: 0;
+		}
+	}
+}

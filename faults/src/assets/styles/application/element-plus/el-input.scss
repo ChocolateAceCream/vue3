@@ -1,0 +1,33 @@
+.el-input {
+	// height: 24px;
+	font-size: 12px;
+	line-height: 22px;
+	color: #b5b5b5;
+	background: #333;
+	.el-input__inner {
+		color: inherit;
+		height: 24px;
+		background: transparent;
+		border: 1px solid #444;
+
+		&::-webkit-input-placeholder{
+			color: #666;
+		}
+	}
+	.el-input-group__append {
+		color: inherit;
+		height: 24px;
+		font-size: 12px;
+		background: transparent;
+		border: 1px solid #444;
+		border-left: none;
+		padding: 0 5px;
+	}
+	.el-input__suffix {
+		display: inline-flex;
+		align-items: center;
+	}
+	.el-input__icon {
+		line-height: 24px;
+	}
+}

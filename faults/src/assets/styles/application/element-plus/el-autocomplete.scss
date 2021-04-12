@@ -1,0 +1,37 @@
+.el-autocomplete__popper {
+	border-radius: 10px;
+	&[data-popper-placement=bottom-start] {
+		transform: translateY(-11px);
+	}
+	&[data-popper-placement=top-start] {
+		transform: translateY(11px);
+	}
+	&.el-popper[role=tooltip] {
+		border: none;
+		.el-popper__arrow {
+			display: none;
+			//&:before {
+			//	background: #3c3c3c;
+			//	border-color: #3c3c3c;
+			//}
+		}
+	}
+	.el-autocomplete-suggestion {
+		background: #3c3c3c;
+	}
+	.el-autocomplete-suggestion__wrap {
+		padding: 0;
+	}
+	.el-autocomplete-suggestion__list {
+		border-radius: 10px;
+		li {
+			color: #b5b5b5;
+			font-size: 12px;
+			line-height: 24px;
+
+			&:hover {
+				background: #444;
+			}
+		}
+	}
+}

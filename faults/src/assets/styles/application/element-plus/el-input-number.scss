@@ -1,0 +1,21 @@
+.el-input-number {
+	.el-input-number__decrease, .el-input-number__increase {
+		background: #3c3c3c;
+		color: #b5b5b5;
+		&.is-disabled {
+			color: #666;
+		}
+	}
+	&.is-controls-right {
+		.el-input-number__increase {
+			border-bottom: none;
+			border-left-color: #333;
+		}
+		.el-input-number__decrease {
+			border-left-color: #333;
+		}
+	}
+	.el-input__inner {
+		text-align: left;
+	}
+}
