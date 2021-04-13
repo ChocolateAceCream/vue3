@@ -11,5 +11,19 @@
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "eslint.validate": [
+    "javascript",
+    "vue"
+  ],
+  "eslint.format.enable": true,
+  "eslint.alwaysShowStatus": true,
+  "stylelint.enable": true,
+  "css.validate": true,
+  "scss.validate": true,
+  "vetur.validation.template": false,
+  "vetur.validation.script": false,
 }

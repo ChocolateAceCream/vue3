@@ -11,23 +11,35 @@
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
   </p>
+  <Test v-model:title="msg"></Test>
+
 </template>
 
-<script setup>
+
+
+<script>
+import { onMounted, ref } from 'vue'
+import Test from '@/components/Test.vue'
 import { defineProps, reactive } from 'vue'
-import _ from 'lodash'
 
-const a = _.findLast([1, 2, 3, 4], function(n) {
-  return n % 2 == 1;
-});
-console.log(a)
+export default {
+  name: 'HelloWorld',
+  components: {
+    Test
+  },
+  setup() {
+    let msg = ref('title')
+    const state = reactive({ count: 0 })
 
-defineProps({
-  msg: String
-})
+    return {
+      msg,
+      state,
+    }
+  },
 
-const state = reactive({ count: 0 })
+}
 </script>
+
 
 <style scoped>
 a {
