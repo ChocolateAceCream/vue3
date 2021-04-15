@@ -1,4 +1,7 @@
+const path = require('path')
+
 module.exports = {
+  rootDir: path.join(__dirname),
   moduleFileExtensions: ['js', 'jsx', 'json', 'vue'],
   transform: {
     '^.+\\.vue$': 'vue-jest',
@@ -14,7 +17,7 @@ module.exports = {
   collectCoverageFrom: ['src/utils/**/*.{js,vue}', '!src/utils/auth.js', '!src/utils/request.js', 'src/components/**/*.{js,vue}'],
   coverageDirectory: '<rootDir>/tests/unit/coverage',
   // 'collectCoverage': true,
-  'coverageReporters': [
+  coverageReporters: [
     'lcov',
     'text-summary'
   ],
