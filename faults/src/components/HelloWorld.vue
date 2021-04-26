@@ -27,6 +27,7 @@
       <component :is="currentTabComponent" class="tab" />
     </keep-alive>
   </div>
+  <render-example />
 
 </template>
 
@@ -35,6 +36,7 @@
 <script>
 import { onMounted, ref, computed, defineProps, reactive} from 'vue'
 import Test from '@/components/Test.vue'
+import RenderExample from '@/components/RenderExample.vue'
 import Heading from '@/components/FunctionalComponentExample.js'
 import Sfc from '@/components/SingleFileComponentsExample.vue'
 import PostsTab from '@/components/tabs/PostsTab.vue'
@@ -49,7 +51,8 @@ export default {
     Sfc,
     PostsTab,
     HomeTab,
-    ArchiveTab
+    ArchiveTab,
+    RenderExample
   },
   setup() {
     let msg = ref('title')
