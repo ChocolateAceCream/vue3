@@ -18,7 +18,16 @@ import { reactive, computed, ref, provide } from 'vue'
 export default {
   data() {
     return {
-      showDetails: false
+      fontColor: 'red',
+      showDetails: false,
+      bg: {
+        color: 'pink'
+      }
+    }
+  },
+  computed: {
+    fontSize() {
+      return '24px'
     }
   },
   components: {
@@ -26,9 +35,11 @@ export default {
   },
   setup() {
     const state = reactive({
-      color: 'red',
-      showDetails: false
+      color: 'green',
+      showDetails: false,
+
     })
+    let bgColor = ref('blue')
 
     function handleClick() {
       console.log('--------clicked-------')
@@ -38,7 +49,8 @@ export default {
     }
     return {
       state,
-      handleClick
+      handleClick,
+      bgColor
     }
   }
 }
@@ -46,6 +58,8 @@ export default {
 
 <style>
 .post {
-  color: v-bind('state.showDetails ? "red" : "green"')
+  color: v-bind('fontColor');
+  background-color: v-bind('bg.color');
+  font-size: v-bind('fontSize');
 }
 </style>
