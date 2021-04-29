@@ -1,5 +1,7 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>{{ msg }}
+    <render-in-setup-example />
+  </h1>
 
   <p>
     <a href="https://vitejs.dev/guide/features.html" target="_blank">Vite Documentation</a> |
@@ -37,6 +39,7 @@
 import { onMounted, ref, computed, defineProps, reactive} from 'vue'
 import Test from '@/components/Test.vue'
 import RenderExample from '@/components/RenderExample.vue'
+import RenderInSetupExample from '@/components/RenderInSetupExample.js'
 import Heading from '@/components/FunctionalComponentExample.js'
 import Sfc from '@/components/SingleFileComponentsExample.vue'
 import PostsTab from '@/components/tabs/PostsTab.vue'
@@ -52,7 +55,8 @@ export default {
     PostsTab,
     HomeTab,
     ArchiveTab,
-    RenderExample
+    RenderExample,
+    RenderInSetupExample
   },
   setup() {
     let msg = ref('title')
