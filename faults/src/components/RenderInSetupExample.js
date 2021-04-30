@@ -1,4 +1,4 @@
-import { h, resolveComponent, resolveDirective, withDirectives,reactive } from 'vue'
+import { h, onMounted, resolveComponent, resolveDirective, withDirectives,reactive } from 'vue'
 export default {
   //this render function will be override by the one from setup()
   render() {
@@ -6,15 +6,8 @@ export default {
       'some text come first',
       h('h1', 'a hdeadline')
     ])
-
-    // return h('div',
-    //   Array.from({ length: 20 }).map(() => {
-    //     return h('p', 'hi')
-    //   })
-    // )
-
   },
-  setup() {
+  setup(props, context) {
     const state = reactive({
       count: 0,
       arr: []
@@ -24,10 +17,15 @@ export default {
       state.arr.push(h('p', {}, state.count))
     }
     return () => {
-      return h('div', { onClick: increment }, [
-        state.count,
-        h('div', { style: { display: "flex" } }, [...state.arr])
-      ])
+      if (state.count % 2 == 0) {
+        return h('div', { onClick: increment}, [
+          props.modelValue,
+          state.count,
+          h('div', { style: { display: "flex" } }, [...state.arr])
+        ])
+      } else {
+        return h('div', { onClick: increment }, 'odd number')
+      }
     }
   }
 }

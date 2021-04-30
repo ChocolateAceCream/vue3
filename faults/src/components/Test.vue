@@ -1,10 +1,7 @@
-<template>
-  <button @click.prevent="handleClick">click me</button>
-</template>
 
 
 <script>
-import { onMounted, ref } from 'vue'
+import { h, onMounted, ref } from 'vue'
 
 export default {
   name: 'Test',
@@ -18,14 +15,17 @@ export default {
   //     }
   //   }
   // },
+  props: ['title'],
   emits: ['update:title'],
   setup(props,context) {
     let a = 1
-    function handleClick() {
+    function handleClick(event) {
       context.emit('update:title', a++)
+      event.preventDefault()
+
     }
-    return {
-      handleClick
+    return () => {
+      return h('button', {onClick: event => handleClick(event)}, props.title)
     }
 
   },

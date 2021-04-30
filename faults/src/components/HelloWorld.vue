@@ -1,8 +1,8 @@
 <template>
-  <h1>{{ msg }}
+  <h1>{{ currentTitle }}
     <render-in-setup-example />
   </h1>
-
+  <div @click="currentTitle += 'aaa'"> click to change title</div>
   <p>
     <a href="https://vitejs.dev/guide/features.html" target="_blank">Vite Documentation</a> |
     <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Documentation</a>
@@ -13,7 +13,7 @@
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
   </p>
-  <Test v-model:title="msg"></Test>
+  <Test v-model:title="currentTitle"></Test>
   <Heading level="4">asdf</Heading>
   <Sfc level="3" id="aa">SFC</Sfc>
   <div class="tabs">
@@ -67,12 +67,23 @@ export default {
       console.log(currentTab.value.toLowerCase()+'-tab')
       return currentTab.value.toLowerCase()+'-tab'
     })
+    const currentTitle = computed({
+      get: () =>  {
+        console.log('----gettter-----')
+        return msg.value
+      },
+      set: (val) => {
+        console.log(val)
+        msg.value = val
+      }
+    })
     return {
       msg,
       state,
       tabs,
       currentTab,
-      currentTabComponent
+      currentTabComponent,
+      currentTitle
     }
   },
 
