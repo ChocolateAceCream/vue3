@@ -26,7 +26,7 @@
     {{tab}}
     </button>
     <keep-alive>
-      <component :is="currentTabComponent" class="tab" />
+      <component :is="currentTabComponent" class="tab" >asdf</component>
     </keep-alive>
   </div>
   <render-example />
@@ -43,7 +43,7 @@ import RenderInSetupExample from '@/components/RenderInSetupExample.js'
 import Heading from '@/components/FunctionalComponentExample.js'
 import Sfc from '@/components/SingleFileComponentsExample.vue'
 import PostsTab from '@/components/tabs/PostsTab.vue'
-import HomeTab from '@/components/tabs/HomeTab.vue'
+import SlotFromRender from '@/components/tabs/SlotFromRender.js'
 import ArchiveTab from '@/components/tabs/ArchiveTab.vue'
 
 export default {
@@ -53,16 +53,16 @@ export default {
     Heading,
     Sfc,
     PostsTab,
-    HomeTab,
+    SlotFromRender,
     ArchiveTab,
     RenderExample,
     RenderInSetupExample
   },
   setup() {
     let msg = ref('title')
-    let currentTab = ref('Home')
+    let currentTab = ref('SlotFromRender')
     const state = reactive({ count: 0 })
-    const tabs = reactive(['Home', 'Posts', 'Archive'])
+    const tabs = reactive(['SlotFromRender', 'Posts', 'Archive'])
     const currentTabComponent = computed(() => {
       console.log(currentTab.value.toLowerCase()+'-tab')
       return currentTab.value.toLowerCase()+'-tab'

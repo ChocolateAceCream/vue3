@@ -1,14 +1,17 @@
 <script>
 
 import { h, resolveComponent, resolveDirective, withDirectives } from 'vue'
-import Home from '@/components/tabs/HomeTab.vue'
+import SlotFromRender from '@/components/tabs/SlotFromRender.js'
 export default {
-  components: {Home},
+  components: {SlotFromRender},
+  mounted(){
+    console.log(this.$slots)
+  },
   render() {
     return h('div', {}, [
       'some text come first',
       h('h1', 'a hdeadline'),
-      h(Home)
+      h(SlotFromRender)
     ])
 
     // return h('div',
